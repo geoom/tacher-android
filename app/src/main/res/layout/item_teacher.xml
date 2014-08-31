@@ -29,7 +29,8 @@
             android:id="@+id/textView"
             android:gravity="top"
             android:textSize="25dp"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,6 +39,8 @@
             android:id="@+id/textView2"
             android:layout_gravity="center_horizontal"
             android:gravity="bottom"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"/>
+
     </LinearLayout>
 </LinearLayout>
