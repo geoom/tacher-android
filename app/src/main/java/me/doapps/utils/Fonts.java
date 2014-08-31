@@ -8,6 +8,9 @@ import android.graphics.Typeface;
  */
 public class Fonts {
     public static Typeface setRobotoBold(Context context){
-        return Typeface.createFromAsset(context.getAssets(),"fonts/RobotoSlab-Bold.ttf");
+        return Typeface.createFromAsset(context.getAssets(),"fonts/Roboto-Light.ttf");
+    }
+    public static Typeface setAngryBird(Context context){
+        return Typeface.createFromAsset(context.getAssets(),"fonts/angrybirds-regular.ttf");
     }
 }

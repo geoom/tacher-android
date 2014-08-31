@@ -5,9 +5,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import me.doapps.utils.Fonts;
 
 
 public class Main extends ActionBarActivity {
@@ -17,6 +20,10 @@ public class Main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        /*sincronizamos*/
+        TextView txt_titulo = (TextView)findViewById(R.id.txt_titulo);
+        txt_titulo.setTypeface(Fonts.setAngryBird(Main.this));
 
         TimerTask task = new TimerTask() {
             @Override
