@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_tacher"
+    android:baselineAligned="false"
+    android:longClickable="false"
+    android:measureWithLargestChild="false"
+    android:orientation="vertical"
+    android:weightSum="1">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:height="50dp"
+        android:editable="false"
+        android:focusableInTouchMode="false"
+        android:text="Teacher"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/boton_iniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="110dp"
+        android:text="Profesores de la FISI"
+        android:textSize="35dp" />
 </LinearLayout>
+
