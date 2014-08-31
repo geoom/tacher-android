@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imagen_splash2"
+    android:background="@drawable/imagen_splash3"
     android:baselineAligned="false"
     android:longClickable="false"
     android:measureWithLargestChild="false"
@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"
         android:editable="false"
         android:focusableInTouchMode="false"
-        android:text="Tacher"
+        android:text=""
         android:textSize="70dp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="90dp"
-        android:text="Profesores de la FISI"
+        android:text=""
         android:textSize="40dp" />
 </LinearLayout>
 
