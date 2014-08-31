@@ -3,12 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_tacher"
-    android:baselineAligned="false"
-    android:longClickable="false"
-    android:measureWithLargestChild="false"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:background="@drawable/fondo_prueba"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_titulo"
@@ -18,8 +14,8 @@
         android:layout_marginTop="20dp"
         android:editable="false"
         android:focusableInTouchMode="false"
-        android:textColor="#FFFFFF"
         android:text="Tacher"
+        android:textColor="#FFFFFF"
         android:textSize="80dp" />
 
     <TextView
@@ -28,8 +24,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
-        android:textColor="#FFFFFF"
         android:text="Profesores de la FISI"
+        android:textColor="#FFFFFF"
         android:textSize="40dp" />
-</LinearLayout>
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

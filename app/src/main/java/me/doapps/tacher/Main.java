@@ -19,7 +19,7 @@ public class Main extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash_);
 
         /*sincronizamos*/
         TextView txt_titulo = (TextView)findViewById(R.id.txt_titulo);
