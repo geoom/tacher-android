@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- general colors -->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="white_light">#80ffffff</color>
+    <color name="black_light">#80000000</color>
+
+    <!-- colors Flatui -->
+    <color name="flatui_turquoise">#1abc9c</color>
+    <color name="flatui_green_sea">#16a085</color>
+    <color name="flatui_emerald">#2ecc71</color>
+    <color name="flatui_nephritis">#27ae60</color>
+    <color name="flatui_peter_river">#3498db</color>
+    <color name="flatui_belize_hole">#2980b9</color>
+    <color name="flatui_amethyst">#9b59b6</color>
+    <color name="flatui_wisteria">#8e44ad</color>
+    <color name="flatui_wet_asphalt">#34495e</color>
+    <color name="flatui_midnight_blue">#2c3e50</color>
+    <color name="flatui_sun_flower">#f1c40f</color>
+    <color name="flatui_orange">#f39c12</color>
+    <color name="flatui_carrot">#e67e22</color>
+    <color name="flatui_pumpkin">#d35400</color>
+    <color name="flatui_alizarin">#e74c3c</color>
+    <color name="flatui_pomegranate">#c0392b</color>
+    <color name="flatui_clouds">#ecf0f1</color>
+    <color name="flatui_silver">#bdc3c7</color>
+    <color name="flatui_concrete">#95a5a6</color>
+    <color name="flatui_asbestos">#7f8c8d</color>
+
+    <!-- Colores Facebook - Twitter Flat Buttons -->
+    <color name="color_flat_facebook_a">#3a5994</color>
+    <color name="color_flat_facebook_b">#153473</color>
+    <color name="color_flat_twitter_a">#2ac6f5</color>
+    <color name="color_flat_twitter_b">#04a0cf</color>
+</resources>
