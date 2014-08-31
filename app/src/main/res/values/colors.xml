@@ -28,9 +28,4 @@
     <color name="flatui_concrete">#95a5a6</color>
     <color name="flatui_asbestos">#7f8c8d</color>
 
-    <!-- Colores Facebook - Twitter Flat Buttons -->
-    <color name="color_flat_facebook_a">#3a5994</color>
-    <color name="color_flat_facebook_b">#153473</color>
-    <color name="color_flat_twitter_a">#2ac6f5</color>
-    <color name="color_flat_twitter_b">#04a0cf</color>
 </resources>
