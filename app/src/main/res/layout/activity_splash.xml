@@ -13,22 +13,21 @@
     <TextView
         android:id="@+id/txt_titulo"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:height="50dp"
         android:editable="false"
         android:focusableInTouchMode="false"
         android:text="Tacher"
-        android:textSize="50dp" />
+        android:textSize="70dp" />
 
     <TextView
         android:id="@+id/txt_subtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="90dp"
         android:text="Profesores de la FISI"
-        android:textSize="35dp" />
+        android:textSize="40dp" />
 </LinearLayout>
 

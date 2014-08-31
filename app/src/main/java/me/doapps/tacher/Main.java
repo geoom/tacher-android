@@ -23,7 +23,10 @@ public class Main extends ActionBarActivity {
 
         /*sincronizamos*/
         TextView txt_titulo = (TextView)findViewById(R.id.txt_titulo);
-        txt_titulo.setTypeface(Fonts.setAngryBird(Main.this));
+        txt_titulo.setTypeface(Fonts.setbirth(Main.this));
+
+        TextView txt_subtitulo = (TextView)findViewById(R.id.txt_subtitulo);
+        txt_subtitulo.setTypeface(Fonts.setAngryBird(Main.this));
 
         TimerTask task = new TimerTask() {
             @Override
