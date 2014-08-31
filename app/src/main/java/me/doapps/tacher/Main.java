@@ -11,7 +11,7 @@ import java.util.TimerTask;
 
 
 public class Main extends ActionBarActivity {
-    private static final long SPLASH_SCREEN_DELAY = 2000;
+    private static final long SPLASH_SCREEN_DELAY = 6000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
