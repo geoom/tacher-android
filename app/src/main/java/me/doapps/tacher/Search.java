@@ -26,6 +26,10 @@ public class Search extends ActionBarActivity {
 
         teacher_dtos.add(new Teacher_DTO("Javier", "Gamboa"));
         teacher_dtos.add(new Teacher_DTO("Dinosaurio", "Salinas"));
+        teacher_dtos.add(new Teacher_DTO("Javier", "Gamboa"));
+        teacher_dtos.add(new Teacher_DTO("Dinosaurio", "Salinas"));
+        teacher_dtos.add(new Teacher_DTO("Javier", "Gamboa"));
+        teacher_dtos.add(new Teacher_DTO("Dinosaurio", "Salinas"));
 
         list_rankking = (ListView)findViewById(R.id.list_ranking);
         list_rankking.setAdapter(new teacher_adapter(teacher_dtos, Search.this));

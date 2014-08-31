@@ -44,24 +44,24 @@ public class comment_adapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Holder holder = null;
+       Holder holder = null;
         Comment_DTO comment_dto = comment_dtos.get(position);
-
-        if (convertView == null) {
+        if (convertView == null){
             convertView = inflater.inflate(R.layout.item_comment, parent, false);
             holder = new Holder();
 
-            holder.txt_comment = (TextView) convertView.findViewById(R.id.descripcion_nombre);
-            convertView.setTag(holder);
-
-        } else {
-            holder = (Holder) convertView.getTag();
+            holder.txt_comment = (TextView)convertView.findViewById(R.id.txt_comment);
+            holder.txt_like = (TextView)convertView.findViewById(R.id.txt_like);
+        }
+        else{
+            holder = (Holder)convertView.getTag();
         }
         holder.txt_comment.setText(comment_dto.getComment());
+        holder.txt_like.setText(String.valueOf(comment_dto.getLike()));
         return convertView;
     }
 
-    class Holder {
+    class Holder{
         TextView txt_comment;
         TextView txt_like;
     }
