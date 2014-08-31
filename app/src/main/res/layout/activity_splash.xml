@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imagen_splash3"
+    android:background="@drawable/splash_tacher"
     android:baselineAligned="false"
     android:longClickable="false"
     android:measureWithLargestChild="false"
@@ -18,16 +18,18 @@
         android:layout_marginTop="20dp"
         android:editable="false"
         android:focusableInTouchMode="false"
-        android:text=""
-        android:textSize="70dp" />
+        android:textColor="#FFFFFF"
+        android:text="Tacher"
+        android:textSize="80dp" />
 
     <TextView
         android:id="@+id/txt_subtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="90dp"
-        android:text=""
+        android:layout_marginTop="80dp"
+        android:textColor="#FFFFFF"
+        android:text="Profesores de la FISI"
         android:textSize="40dp" />
 </LinearLayout>
 
