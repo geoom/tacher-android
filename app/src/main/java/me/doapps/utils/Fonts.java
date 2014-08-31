@@ -12,5 +12,15 @@ public class Fonts {
     }
     public static Typeface setAngryBird(Context context){
         return Typeface.createFromAsset(context.getAssets(),"fonts/angrybirds-regular.ttf");
+
+    }
+    public static Typeface setbirth(Context context){
+        return Typeface.createFromAsset(context.getAssets(),"fonts/BIRTH_OF_A_HERO.ttf");
+
+    }
+
+    public static Typeface setbernardo(Context context){
+        return Typeface.createFromAsset(context.getAssets(),"fonts/Bernardo_Moda_contrast.ttf");
+
     }
 }
