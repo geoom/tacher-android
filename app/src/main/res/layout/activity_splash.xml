@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_tacher"
+    android:background="@drawable/imagen_splash2"
     android:baselineAligned="false"
     android:longClickable="false"
     android:measureWithLargestChild="false"
