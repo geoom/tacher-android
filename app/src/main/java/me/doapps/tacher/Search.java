@@ -1,7 +1,10 @@
 package me.doapps.tacher;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -28,5 +31,12 @@ public class Search extends ActionBarActivity {
         list_rankking.setAdapter(new teacher_adapter(teacher_dtos, Search.this));
 
 
+
+        list_rankking.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(Search.this, Profile.class));
+            }
+        });
     }
 }
