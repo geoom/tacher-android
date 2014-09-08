@@ -6,6 +6,21 @@
     <color name="white_light">#80ffffff</color>
     <color name="black_light">#80000000</color>
 
+    <!-- tacher colors -->
+    <color name="green_light">#B0E7B8</color>
+    <color name="green_normal">#89D275</color>
+    <color name="verde_forte">#78B280</color>
+    <color name="sky_blue">#68CBD0</color>
+    <color name="sky_light">#ADE0EE</color>
+
+    <!-- social network color's -->
+    <color name="blue_fb">#3b5998</color>
+    <color name="blue_fb_light">#6786bf</color>
+    <color name="sky_tw">#00aced</color>
+    <color name="sky_tw_light">#33c9ff</color>
+    <color name="red_gp">#d34836</color>
+    <color name="red_gp_light">#de5447</color>
+
     <!-- colors Flatui -->
     <color name="flatui_turquoise">#1abc9c</color>
     <color name="flatui_green_sea">#16a085</color>

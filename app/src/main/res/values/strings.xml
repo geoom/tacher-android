@@ -5,4 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Splash -->
+    <string name="message_splash">La venganza es dulce!</string>
+    <string name="login_fb">Login with facebook</string>
+
 </resources>
