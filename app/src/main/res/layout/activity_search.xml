@@ -6,19 +6,42 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#33FF33"
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="45dp" />
+
+        <ImageButton
+            android:background="@drawable/selector_button_green"
+            android:src="@drawable/ic_action_search"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="45dp" />
 
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/frame_teachers"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <ListView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list_ranking"
