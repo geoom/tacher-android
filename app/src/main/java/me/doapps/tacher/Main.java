@@ -51,10 +51,7 @@ public class Main extends ActionBarActivity {
 
             }
         }, 3000);
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
