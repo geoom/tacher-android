@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/frame_jalador"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/image_rate_jalador"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_jalador"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/select_rate_jalador"
+                android:background="@color/alpha_green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/image_rate_regalon"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_regalon"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/select_rate_regalon"
+                android:visibility="gone"
+                android:background="@color/alpha_green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/image_rate_vago"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_vago"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/select_rate_vago"
+                android:background="@color/alpha_green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/image_rate_trome"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_trome"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/select_rate_trome"
+                android:visibility="gone"
+                android:background="@color/alpha_green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_rate_ok"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/selector_button_sky"
+        android:text="@string/dialog_calificar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>

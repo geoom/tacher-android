@@ -10,8 +10,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 import me.doapps.beans.Teacher_DTO;
 import me.doapps.tacher.R;
@@ -24,6 +27,7 @@ public class View_Tacher extends LinearLayout implements View.OnClickListener {
     private Teacher_DTO teacher_dto;
     private View view;
 
+    private Interface_Teacher interface_teacher;
 
     public View_Tacher(Context context, Teacher_DTO teacher_dto) {
         super(context);
@@ -48,16 +52,31 @@ public class View_Tacher extends LinearLayout implements View.OnClickListener {
         LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.view_teacher, this, true);
 
+
+        TextView txt_name = (TextView)view.findViewById(R.id.txt_name);
+        TextView txt_description = (TextView)view.findViewById(R.id.txt_description);
         ImageView img_photo = (ImageView)view.findViewById(R.id.img_photo);
 
-        String imageurl = "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p160x160/1618522_10152793594515353_605748007_n.jpg?oh=213b8b7d3c61d23c5a4eef00b2044a1c&oe=54B94155&__gda__=1421347487_eca829cd300ad0f2331480d5d388812d";
-        Picasso.with(getContext()).load(imageurl).placeholder(R.drawable.gamboa_cruzado).centerCrop().fit().transform(new RoundedTransformation(75, 0)).into(img_photo);
+        txt_name.setText(teacher_dto.getName());
+        txt_description.setText(teacher_dto.getDescription());
+
+        String imageurl = teacher_dto.getImage();
+        Picasso.with(getContext()).load(imageurl).placeholder(R.drawable.teacher_profile_photo).centerCrop().fit().transform(new RoundedTransformation(75, 0)).into(img_photo);
         setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-        Log.e("clic docente", "ok");
+        interface_teacher.getTeacher(teacher_dto);
+    }
+
+    /*Set Interface*/
+    public void setInterfaceTacher(Interface_Teacher interface_teacher){
+        this.interface_teacher = interface_teacher;;
+    }
+    /*Inner Interface*/
+    public interface Interface_Teacher{
+        void getTeacher(Teacher_DTO teacher_dto1);
     }
 }

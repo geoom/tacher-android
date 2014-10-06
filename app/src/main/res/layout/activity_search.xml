@@ -17,6 +17,7 @@
             android:layout_height="45dp" />
 
         <ImageButton
+            android:id="@+id/btn_search"
             android:background="@drawable/selector_button_green"
             android:src="@drawable/ic_action_search"
             android:layout_weight="1"

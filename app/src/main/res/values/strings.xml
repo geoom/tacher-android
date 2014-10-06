@@ -9,4 +9,18 @@
     <string name="message_splash">La venganza es dulce!</string>
     <string name="login_fb">Login with facebook</string>
 
+    <!-- Dialog Rate -->
+    <string name="dialog_calificar">Calificar</string>
+    <!-- View Rate -->
+    <string name="rate_name">Trome</string>
+
+    <!-- Profile -->
+    <string name="send_comment">Enviar</string>
+    <string name="input_comment">Ingrese su comentario</string>
+    <string name="your_comment">Tu comentario</string>
+    <string name="ago_comment">1 min ago</string>
+    <string name="teacher_name">Nombre Docente</string>
+    <string name="teacher_description">Descripcion Docente</string>
+    <string name="teacher_rate">Puntaje: 5</string>
+
 </resources>
