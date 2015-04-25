@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="D:\CAPACITACION_2014\ANDROID\Tacher\tacher\facebook\src\main\assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="D:\CAPACITACION_2014\ANDROID\Tacher\tacher\facebook\src\debug\assets" />
+    </dataSet>
+
+</merger>

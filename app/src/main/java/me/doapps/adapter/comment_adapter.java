@@ -16,12 +16,12 @@ import me.doapps.tacher.R;
 /**
  * Created by HP on 31/08/2014.
  */
-public class comment_adapter extends BaseAdapter{
+public class Comment_Adapter extends BaseAdapter{
     private ArrayList<Comment_DTO> comment_dtos;
     private Context context;
     private LayoutInflater inflater;
 
-    public comment_adapter(ArrayList<Comment_DTO> comment_dtos, Context context){
+    public Comment_Adapter(ArrayList<Comment_DTO> comment_dtos, Context context){
         this.comment_dtos = comment_dtos;
         this.context = context;
         this.inflater = LayoutInflater.from(context);
@@ -50,8 +50,8 @@ public class comment_adapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.item_comment, parent, false);
             holder = new Holder();
 
-            holder.txt_comment = (TextView)convertView.findViewById(R.id.txt_comment);
-            holder.txt_like = (TextView)convertView.findViewById(R.id.txt_like);
+            /*holder.txt_comment = (TextView)convertView.findViewById(R.id.txt_comment);
+            holder.txt_like = (TextView)convertView.findViewById(R.id.txt_like);*/
         }
         else{
             holder = (Holder)convertView.getTag();

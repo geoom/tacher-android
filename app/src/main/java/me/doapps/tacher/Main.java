@@ -32,6 +32,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Signature;
@@ -40,10 +41,12 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import me.doapps.modules.Module_Tacher;
 import me.doapps.utils.Fonts;
 import me.doapps.utils.InternetUtil;
 import me.doapps.utils.JSONParser;
 import me.doapps.utils.SessionManager;
+import me.doapps.ws.WS_Tacher;
 
 
 public class Main extends ActionBarActivity {
@@ -57,6 +60,13 @@ public class Main extends ActionBarActivity {
     Facebook mFacebook;
     Button btn_login_fb;
 
+    private ProgressDialog dialog;
+    private String user_id;
+    private String user_name;
+    private String user_lastname;
+    private String user_access_token;
+    private String user_facebook;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +75,15 @@ public class Main extends ActionBarActivity {
 
         getActionBar().hide();
 
+        SessionManager manager = new SessionManager(Main.this);
+        Log.e("session_manager", manager.getEstadoSession()+","+manager.getNomUsuario());
+        if(manager.getEstadoSession()){
+            startActivity(new Intent(Main.this, Search.class));
+            finish();
+        }
+
         /*sincronizamos*/
-        Button btn_login_fb = (Button)findViewById(R.id.btn_login_fb);
+        Button btn_login_fb = (Button) findViewById(R.id.btn_login_fb);
 
         TextView txt_titulo = (TextView) findViewById(R.id.txt_titulo);
         txt_titulo.setTypeface(Fonts.setAngryBird(Main.this));
@@ -98,22 +115,21 @@ public class Main extends ActionBarActivity {
         mFacebook = new Facebook(ID);
 
         /*verify session*/
-        if (manager.getEstadoSession()) {
+        /*if (manager.getEstadoSession()) {
             startActivity(new Intent(Main.this, Search.class));
             finish();
-        }
+        }*/
 
         btn_login_fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean internet = new InternetUtil(Main.this).isConnectingToInternet();
-                if (internet){
+                if (internet) {
                     AsyncFacebookRunner mAsyncRunner = new AsyncFacebookRunner(
                             mFacebook);
                     mFacebook.authorize(Main.this, APP_PERMISIONS,
                             new LoginDialogListener());
-                }
-                else{
+                } else {
                     Toast.makeText(Main.this, "Necesitas conexión a internet", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -146,15 +162,20 @@ public class Main extends ActionBarActivity {
     }
 
 
-    /** Inner Class Facebook **/
+    /**
+     * Inner Class Facebook *
+     */
     private class LoginDialogListener implements Facebook.DialogListener {
 
         public void onComplete(Bundle values) {
             Log.d("FACEBOOK LOGIN ", "LoginONComplete");
-            // Intent intent = new Intent(LoginFb.this, Map.class);
-            // startActivity(intent);
-            new TaskLoginFacebook().execute();
+           /*AsyncTask Login with facebook*/
 
+
+            Log.e("access_token", mFacebook.getAccessToken());
+            Log.e("access_expires", mFacebook.getAccessExpires()+"");
+
+            new sendRequestLoginFacebook().execute(mFacebook.getAccessToken());
         }
 
         public void onFacebookError(FacebookError e) {
@@ -178,114 +199,71 @@ public class Main extends ActionBarActivity {
         }
     }
 
-    /**Async Task Facebook**/
-    private class TaskLoginFacebook extends AsyncTask<Void, Void, Message> {
 
-        private static final String WS_ENTRAR_FACEBOOK = "http://cuscoguia.com/jonathan/webservices/signin.php";
-
-        private String USUARIO_FACEBOOK;
-        private String USUARIO_NICK;
-        private String USUARIO_NOMBRES;
-        private String USUARIO_APELLIDOS;
-        private String USUARIO_SEXO;
-        private String USUARIO_EMAIL;
-        private String USUARIO_IMAGEN;
-
-        private String response = "";
+    /**Asynctask WebServices**/
+    private class sendRequestLoginFacebook extends AsyncTask<String, Void, String>{
+        private JSONObject objectFacebook;
         private JSONParser parser = new JSONParser();
-        private ProgressDialog pDialog;
-        JSONObject objectFacebook;
+        private String response = "";
 
-        @Override
-        protected Message doInBackground(Void... args) {
 
-            Message message = new Message();
-
-            try {
-                response = mFacebook.request("me");
-                objectFacebook = new JSONObject(response);
-
-                USUARIO_FACEBOOK = "" + objectFacebook.getLong("id");
-                USUARIO_NICK = objectFacebook.getString("first_name");
-                USUARIO_NOMBRES = objectFacebook.getString("first_name");
-                USUARIO_SEXO = objectFacebook.getString("gender");
-                USUARIO_APELLIDOS = objectFacebook.getString("last_name");
-                USUARIO_EMAIL = objectFacebook.getString("email");
-                USUARIO_IMAGEN = "https://graph.facebook.com/"
-                        + USUARIO_FACEBOOK + "/picture";
-
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("nombres", USUARIO_NOMBRES));
-                params.add(new BasicNameValuePair("apellidos",
-                        USUARIO_APELLIDOS));
-                params.add(new BasicNameValuePair("nick", USUARIO_NICK));
-                params.add(new BasicNameValuePair("mail", USUARIO_EMAIL));
-                params.add(new BasicNameValuePair("sexo", USUARIO_SEXO));
-                params.add(new BasicNameValuePair("facebook", USUARIO_FACEBOOK));
-
-                /*Session session = Session.getActiveSession();
-                if(session == null){
-                    session = Session.openActiveSessionFromCache(Main.this);
-                }
-                if(session != null && session.getState().isOpened()){
-                    Log.e("sessionToken", session.getAccessToken());
-                    Log.e("sessionTokenDueDate", session.getExpirationDate().toLocaleString());
-                }
-                else{
-                    Log.e("session token", "nada");
-                }*/
-
-                Log.e("params ws", params.toString());
-
-                JSONObject object = parser.makeHttpRequest(WS_ENTRAR_FACEBOOK,
-                        "POST", params);
-
-                message.arg1 = object.getInt("success");
-                message.obj = object.getJSONArray("USUARIOS").getJSONObject(0)
-                        .getString("facebok");
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return message;
-        }
-
-        @Override
-        protected void onPostExecute(Message result) {
-            SessionManager manager = new SessionManager(Main.this);
-            int success = result.arg1;
-            String nombre = "", id = "", apellidos = "";
-
-            try {
-                id = objectFacebook.getString("id");
-                nombre = objectFacebook.getString("first_name");
-                apellidos = objectFacebook.getString("last_name");
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            manager.crearSessionOn(id, nombre, apellidos);
-            Main.this.finish();
-
-            Intent MainActivityIntent = new Intent(Main.this,
-                    Search.class);
-            MainActivityIntent.putExtra("first_name", nombre);
-            MainActivityIntent.putExtra("id_facebook", id);
-
-            startActivity(MainActivityIntent);
-            pDialog.dismiss();
-        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(Main.this);
-            pDialog.setMessage("Ingresando a Tacher App...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
-            pDialog.show();
+            dialog = ProgressDialog.show(Main.this, null, "Ingresando a Tacher ...", true, false);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                response = mFacebook.request("me");
+                Log.e("response", response);
+                try {
+                    JSONObject object_response = new JSONObject(response);
+                    user_facebook = object_response.getString("id");
+                    user_name = object_response.getString("first_name");
+                    user_lastname = object_response.getString("last_name");
+                    user_access_token = strings[0];
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                params.add(new BasicNameValuePair("access_token", strings[0]));
+
+                JSONObject object = parser.makeHttpRequest(WS_Tacher.WS_LOGIN, "GET", params);
+                try {
+                    boolean success = object.getBoolean("status");
+                    if(success){
+                        user_id = object.getJSONObject("user").getString("id");
+                        SessionManager manager = new SessionManager(Main.this);
+                        manager.crearSessionOn(user_id, user_name, user_lastname, user_access_token);
+                    }
+                    else{
+                        user_id = "-1";
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.e("result", object.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return user_id;
+        }
+
+        @Override
+        protected void onPostExecute(String user_id) {
+            dialog.dismiss();
+            if(Integer.parseInt(user_id)>0){
+
+                startActivity(new Intent(Main.this, Search.class));
+                finish();
+            }
+
         }
     }
-
 }

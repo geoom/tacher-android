@@ -12,6 +12,7 @@ public class SessionManager {
     public static final String USER_IS_LOGIN = "USER_LOGIN";
 
     public static final String USER_FACEBOOK = "USER_FACEBOOK";
+    public static final String USER_ACCESS_TOKEN = "USER_ACCESS_TOKEN";
     public static final String USER_ESTADO = "USER_ESTADO";
     public static final String USER_NICK = "USER_NICK";
     public static final String USER_NOMBRES = "USER_NOMBRES";
@@ -37,12 +38,12 @@ public class SessionManager {
         return estado;
     }
 
-    public void crearSessionOn(String _id, String nombre, String apellidos) {
+    public void crearSessionOn(String _id, String nombre, String apellidos, String token) {
         editor.putBoolean(USER_IS_LOGIN, true);
         editor.putString(USER_FACEBOOK, _id);
         editor.putString(USER_NOMBRES, nombre);
         editor.putString(USER_APELLIDOS, apellidos);
-
+        editor.putString(USER_ACCESS_TOKEN, token);
         editor.commit();
     }
 

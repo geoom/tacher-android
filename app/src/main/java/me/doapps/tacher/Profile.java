@@ -2,19 +2,14 @@ package me.doapps.tacher;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import me.doapps.adapter.comment_adapter;
-import me.doapps.adapter.teacher_adapter;
 import me.doapps.beans.Comment_DTO;
-import me.doapps.beans.Teacher_DTO;
 import me.doapps.utils.RoundedTransformation;
 
 /**

@@ -7,17 +7,17 @@
     android:weightSum="1">
 
     <LinearLayout
-        android:layout_margin="5dp"
-        android:background="@drawable/selector_view_sky"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/selector_view_sky"
         android:orientation="horizontal">
 
         <ImageView
-            android:padding="10dp"
             android:id="@+id/image_profile"
             android:layout_width="133dp"
             android:layout_height="133dp"
+            android:padding="10dp"
             android:src="@drawable/teacher_profile_photo" />
 
         <LinearLayout
@@ -36,61 +36,65 @@
 
 
             <TextView
-                android:lines="2"
-                android:maxLines="2"
                 android:id="@+id/txt_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/teacher_description"
-                android:textSize="20dp"
+                android:layout_margin="3dp"
                 android:layout_marginTop="10dp"
-                android:layout_margin="3dp" />
+                android:lines="2"
+                android:maxLines="2"
+                android:text="@string/teacher_description"
+                android:textSize="20dp" />
 
             <TextView
-                android:text="@string/teacher_rate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/teacher_rate" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:src="@drawable/teacher_profile_photo" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <EditText
-            android:layout_margin="5dp"
-            android:layout_weight="4"
-            android:padding="5dp"
-            android:background="@drawable/selector_edittext_green"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:text=""
-            android:hint="@string/input_comment" />
+            <ListView
+                android:id="@+id/list_comments"
+                android:layout_width="match_parent"
+                android:layout_height="304dp"
+                android:layout_gravity="center_horizontal|top"></ListView>
 
-        <Button
-            android:textColor="@color/white"
-            android:layout_margin="5dp"
-            android:background="@drawable/selector_button_green"
-            android:layout_weight="1.5"
-            android:layout_width="0dp"
-            android:text="@string/send_comment"
-            android:layout_height="50dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/selector_edittext_green"
+                    android:hint="@string/input_comment"
+                    android:padding="5dp"
+                    android:text="" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button_green"
+                    android:text="@string/send_comment"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_comments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"></LinearLayout>
 
 
 </LinearLayout>
